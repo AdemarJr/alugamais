@@ -1,8 +1,9 @@
 package br.com.alugamais.service;
 
-import br.com.alugamais.dao.EmailDao;
+import java.util.List;
 
-import br.com.alugamais.web.domain.Email;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.ResourceLoader;
@@ -12,8 +13,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.mail.internet.MimeMessage;
-import java.util.List;
+import br.com.alugamais.dao.EmailDao;
+import br.com.alugamais.web.domain.Email;
 
 @Service
 @Transactional
@@ -22,7 +23,7 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     EmailDao dao;
 
-
+    // @Autowired
     private JavaMailSender emailSender;
     @Autowired
     private ResourceLoader resourceLoader;
